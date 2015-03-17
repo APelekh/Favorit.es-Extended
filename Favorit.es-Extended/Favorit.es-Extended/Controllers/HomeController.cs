@@ -11,13 +11,18 @@ namespace Favorit.es.Controllers
 {
     public class HomeController : Controller
     {
+        //data context, data access layer, connects to database
         private FavoritesEntities db = new FavoritesEntities();
 
+        /// <summary>
+        /// Gets the id of the currently logged in user
+        /// </summary>
         public string UserID
         {
             get { return User.Identity.GetUserId().ToString(); }
         }
 
+        
         private List<Favorite> _userFavorites;
         public List<Favorite> UserFavorites
         {
@@ -47,7 +52,7 @@ namespace Favorit.es.Controllers
             {
                 if (_flickr == null)
                 {
-                    _flickr = new Flickr("8dc80a175f597a48f9e481c569add5ae", "a2cb84a6184022c1");
+                    _flickr = new Flickr("381fe72e6e5d44f22c6192a211e5fbf0", "95203e8b65291995");
                     Flickr.CacheDisabled = true; //for server deployment
                 }
                 return _flickr; 
